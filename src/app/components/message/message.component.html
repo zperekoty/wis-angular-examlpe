@@ -1,0 +1,23 @@
+<div class="flex justify-center items-center flex-col">
+  <p
+    class="text-base lg:text-lg"
+    [ngClass]="{
+      'text-green-600': response.status === 'success',
+      'text-red-600': response.status === 'error'
+    }"
+  >
+    {{ response.message }}
+  </p>
+
+  <span class="text-base lg:text-lg text-white"
+    >Статус:
+    <span
+      [ngClass]="{
+        'text-green-600': response.status === 'success',
+        'text-red-600': response.status === 'error'
+      }"
+      class="uppercase"
+      >{{ response.status }}</span
+    ></span
+  >
+</div>

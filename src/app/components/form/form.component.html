@@ -1,0 +1,112 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+  class="flex justify-center items-center flex-col gap-4 mt-5 w-[250px] lg:w-[550px] mb-5"
+>
+  <h1 class="text-white text-2xl lg:text-4xl capitalize">отправить запрос</h1>
+
+  <div class="flex justify-center items-start flex-col gap-3 w-full">
+    <label for="name" class="cursor-pointer text-lg lg:text-2xl text-gray-300"
+      >Имя</label
+    >
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Иван..."
+      class="py-2 px-2 bg-transparent border-b-2 text-white w-full text-lg focus:border-[rgb(209,67,63)] transition-all duration-300 ease-in-out"
+      style="outline: none"
+      formControlName="name"
+      [ngClass]="{
+        'border-white': !error.name,
+        'border-red-600': error.name
+      }"
+    />
+  </div>
+
+  <div class="flex justify-center items-start flex-col gap-3 w-full">
+    <label for="tg" class="cursor-pointer text-lg lg:text-2xl text-gray-300"
+      >Телеграм</label
+    >
+    <input
+      type="text"
+      name="tg"
+      id="tg"
+      placeholder="@username"
+      class="py-2 px-2 bg-transparent border-b-2 text-white w-full text-lg focus:border-[rgb(209,67,63)] transition-all duration-300 ease-in-out"
+      style="outline: none"
+      formControlName="telegram"
+      [ngClass]="{
+        'border-white': !error.telegram,
+        'border-red-600': error.telegram
+      }"
+    />
+  </div>
+
+  <div class="flex justify-center items-start flex-col gap-3 w-full">
+    <label for="email" class="cursor-pointer text-lg lg:text-2xl text-gray-300"
+      >Почта</label
+    >
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="mail@example.com"
+      class="py-2 px-2 bg-transparent border-b-2 text-white w-full text-lg focus:border-[rgb(209,67,63)] transition-all duration-300 ease-in-out"
+      style="outline: none"
+      formControlName="email"
+      [ngClass]="{
+        'border-white': !error.email,
+        'border-red-600': error.email
+      }"
+    />
+  </div>
+
+  <div class="flex justify-center items-start flex-col gap-3 w-full">
+    <label for="phone" class="cursor-pointer text-lg lg:text-2xl text-gray-300"
+      >Телефон</label
+    >
+    <input
+      type="text"
+      name="phone"
+      id="phone"
+      placeholder="7 (999) 000-00-00"
+      class="py-2 px-2 bg-transparent border-b-2 text-white w-full text-lg focus:border-[rgb(209,67,63)] transition-all duration-300 ease-in-out"
+      style="outline: none"
+      formControlName="phone"
+      [ngClass]="{
+        'border-white': !error.phone,
+        'border-red-600': error.phone
+      }"
+    />
+  </div>
+
+  <div class="flex justify-center items-start flex-col gap-3 w-full">
+    <label
+      for="message"
+      class="cursor-pointer text-lg lg:text-2xl text-gray-300"
+      >Сообщение</label
+    >
+    <textarea
+      name="message"
+      id="message"
+      placeholder="Хочу купить цветы..."
+      class="py-2 px-2 bg-transparent border-b-2 text-white w-full text-lg h-[100px] focus:border-[rgb(209,67,63)] transition-all duration-300 ease-in-out"
+      style="outline: none; resize: none"
+      formControlName="message"
+      [ngClass]="{
+        'border-white': !error.message,
+        'border-red-600': error.message
+      }"
+    ></textarea>
+  </div>
+
+  <button
+    class="bg-blue-800 p-4 w-full text-xl transition-all duration-300 ease-in-out hover:bg-blue-800 lg:hover:bg-[rgb(209,67,63)] hover:text-black lg:hover:text-white"
+    type="submit"
+  >
+    Отправить
+  </button>
+
+  <wis-message *ngIf="gotValue" [response]="response"></wis-message>
+</form>
