@@ -51,6 +51,9 @@ export class FormComponent {
       }, 2000);
     }
 
+    if (!this.form.value.telegram?.startsWith("@"))
+      this.form.value.telegram = `@${this.form.value.telegram}`;
+
     return this.formService
       .send({
         name: this.form.value.name as string,
